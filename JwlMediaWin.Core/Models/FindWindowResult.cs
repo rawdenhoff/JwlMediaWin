@@ -10,7 +10,7 @@
         /// <value>
         ///   <c>true</c> if JWL is running; otherwise, <c>false</c>.
         /// </value>
-        public bool JwlRunning { get; set; }
+        public bool AppIsRunning { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the desktop element has been found.

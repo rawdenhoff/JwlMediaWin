@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.329
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwlMediaWin", "JwlMediaWin\JwlMediaWin.csproj", "{2ECA9EDE-DDCA-479E-9F5C-E70DE2656515}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{0B0EDFB6-2E33-4A3E-A9CF-84A9C51BA0EE}"
 	ProjectSection(SolutionItems) = preProject
 		JwlMediaWin.ruleset = JwlMediaWin.ruleset
@@ -13,20 +11,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwlMediaWin.Core", "JwlMediaWin.Core\JwlMediaWin.Core.csproj", "{9C6B9077-C068-4B9C-A57A-81F124D92BC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoomSwitcher", "ZoomSwitcher\ZoomSwitcher.csproj", "{F550E2DD-58FB-48FB-AA36-7F827A953DF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2ECA9EDE-DDCA-479E-9F5C-E70DE2656515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2ECA9EDE-DDCA-479E-9F5C-E70DE2656515}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2ECA9EDE-DDCA-479E-9F5C-E70DE2656515}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2ECA9EDE-DDCA-479E-9F5C-E70DE2656515}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9C6B9077-C068-4B9C-A57A-81F124D92BC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C6B9077-C068-4B9C-A57A-81F124D92BC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C6B9077-C068-4B9C-A57A-81F124D92BC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C6B9077-C068-4B9C-A57A-81F124D92BC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F550E2DD-58FB-48FB-AA36-7F827A953DF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F550E2DD-58FB-48FB-AA36-7F827A953DF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F550E2DD-58FB-48FB-AA36-7F827A953DF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F550E2DD-58FB-48FB-AA36-7F827A953DF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

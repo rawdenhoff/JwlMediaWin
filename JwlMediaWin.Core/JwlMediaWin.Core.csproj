@@ -66,7 +66,9 @@
     <Compile Include="Models\FixerStatusEventArgs.cs" />
     <Compile Include="Models\JwLibAppTypes.cs" />
     <Compile Include="Models\MediaAndCoreWindows.cs" />
+    <Compile Include="NativeMethod3.cs" />
     <Compile Include="NativeMethods.cs" />
+    <Compile Include="NativeMethods2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

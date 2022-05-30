@@ -4,6 +4,7 @@
     {
         None,
         JwLibrary,
-        JwLibrarySignLanguage
+        JwLibrarySignLanguage,
+        Zoom
     }
 }

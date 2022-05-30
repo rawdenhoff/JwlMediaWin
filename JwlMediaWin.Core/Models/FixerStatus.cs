@@ -41,5 +41,8 @@
         ///   <c>true</c> if there was an unknown error unknown; otherwise, <c>false</c>.
         /// </value>
         public bool ErrorUnknown { get; set; }
+
+        public bool Reset { get; set; }
+
     }
 }

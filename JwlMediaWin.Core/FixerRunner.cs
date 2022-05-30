@@ -44,6 +44,12 @@
 
                 SendStatusEvent(results);
 
+                if (results.Reset)
+                {
+                    fixer.Reset();
+                    results.Reset = false;
+                }
+
                 Thread.Sleep(GetIntervalMilliseconds(results));
             }
         }
@@ -55,7 +61,7 @@
                 return IntervalSecsWatchingForWindow * 1000;
             }
 
-            return results.FindWindowResult.JwlRunning
+            return results.FindWindowResult.AppIsRunning
                 ? IntervalSecsWatchingForProcess * 1000
                 : IntervalSecsWatchingForWindow * 1000;
         }
