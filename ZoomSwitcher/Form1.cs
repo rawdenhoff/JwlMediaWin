@@ -46,7 +46,7 @@ namespace ZoomSwitcher
         {
             if (chkJWL.Checked ==false || chkZoom.Checked == false )
             {
-                MessageBox.Show($"Cannot quite while windows are hidden.{Environment.NewLine}{Environment.NewLine}Tick both windows first and then try again.", "Media Windows Hidden", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Cannot quit while windows are hidden.{Environment.NewLine}{Environment.NewLine}Tick both checkboxes first and then try again.", "Media Windows Hidden", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 e.Cancel = true;
             }
         }
@@ -149,11 +149,6 @@ namespace ZoomSwitcher
                     jwlHandle = IntPtr.Zero;
                     ShowBalloonMsg(SystemIcons.Information, msg);
 
-                    //if (_isFixed && jwlHandle == IntPtr.Zero && e.Status.FindWindowResult.FoundMediaWindow)
-                    //{
-                    //    jwlHandle = new IntPtr(e.Status.FindWindowResult.MainMediaWindow.Current.NativeWindowHandle);
-                    //}
-
                 }
             }
         }
@@ -209,7 +204,7 @@ namespace ZoomSwitcher
                 }
                 catch (Exception ex)
                 {
-
+                    Console.WriteLine(ex.ToString());
                     //throw;
                 }
 

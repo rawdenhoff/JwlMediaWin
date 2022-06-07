@@ -372,7 +372,6 @@
 
                 case JwlMediaWin.Core.Models.JwLibAppTypes.Zoom:
 
-
                     var ZoomCandidates = _cachedDesktopElement.FindAll(
                                                     TreeScope.Descendants,
                                                     new PropertyCondition(AutomationElement.ClassNameProperty, "ZPContentViewWndClass"));
@@ -385,7 +384,7 @@
                     foreach (AutomationElement candidate in ZoomCandidates)
                     {
   
-                        if(candidate.Current.Name == "Zoom") //Main window says Zoom Meeting
+                        if (candidate.Current.Name == "Zoom") // Main window says Zoom Meeting
                         {
                             return new MediaAndCoreWindows
                             {
@@ -394,161 +393,7 @@
                             };
                         }
 
-                        //var coreWindow = GetJwlCoreWindow(candidate, caption);
-                        //if (coreWindow != null)
-                        //{
-                        //    if (IsCorrectCoreWindow(appType, coreWindow))
-                        //    {
-                        //        return new MediaAndCoreWindows
-                        //        {
-                        //            CoreWindow = coreWindow,
-                        //            MediaWindow = candidate
-                        //        };
-                        //    }
-                        //}
                     }
-
-
-                    //List<IntPtr> handles = NativeMethod3.GetWindowHandles("zoom", "ZPContentViewWndClass");
-                    //MediaAndCoreWindows ToReturn = new MediaAndCoreWindows();
-
-                    //string strWinName;
-                    //foreach (IntPtr item in handles)
-                    //{
-
-                    //    strWinName = NativeMethods.GetWindowTitle(item);
-
-                    //    if(strWinName == "Zoom") 
-                    //    {
-
-
-
-                    //        //try
-                    //        //{
-                    //        //    bool result;
-                    //        //    result = NativeMethods.ShowWindow(item, NativeMethods.SW_HIDE);
-                    //        //}
-                    //        //catch (Exception ex)
-                    //        //{
-                    //        //    throw;
-                    //        //}
-
-                    //        //try
-                    //        //{
-                    //        //    bool result;
-                    //        //    result = NativeMethods.ShowWindow(item, NativeMethods.SW_SHOW);
-                    //        //}
-                    //        //catch (Exception ex)
-                    //        //{
-                    //        //    throw;
-                    //        //}
-                    //    }
-                    //}
-
-
-                    //foreach (Process proc in Process.GetProcessesByName(ZoomProcessName))
-                    //{
-                    //    WindowHandleInfo info = new WindowHandleInfo(proc.MainWindowHandle);
-
-                    //    List<IntPtr> titles;
-
-
-
-
-                    //    titles = info.GetAllChildHandles();
-                    //    titles.Reverse();
-
-                    //    if (titles.Count == 12)
-                    //    { 
-
-                    //        foreach (IntPtr item in titles)
-                    //        {
-
-                    //            Thread.Sleep(100);
-                    //            string entry;
-                    //            entry = NativeMethods.GetWindowTitle(item);
-
-
-                    //            if (entry == "VideoRenderWndClass")
-                    //            {
-
-                    //                try
-                    //                {
-                    //                    bool result;
-                    //                    result = NativeMethods.ShowWindow(item, NativeMethods.SW_HIDE);
-
-                    //                    var insertAfterValue = new IntPtr(-1);
-
-                    //                    const uint ShowWindowFlag = 0x0040;
-                    //                    const uint NoCopyBitsFlag = 0x0100;
-                    //                    const uint NoSendChangingFlag = 0x0400;
-                    //                    const int adjustment = 1; // adjustment for titlebar
-                    //                    const int border = 8; // adjustment for borders
-
-                    //                    //var rect = result.FindWindowResult.MainMediaWindow.Current.BoundingRectangle;
-
-
-
-                    //                    NativeMethods.SetWindowPos(
-                    //                                        item,
-                    //                                        insertAfterValue, 200, 200, 400, 400, (int)(NoCopyBitsFlag | NoSendChangingFlag | ShowWindowFlag));
-                    //                                        //(int)rect.Top - adjustment,
-                    //                                        //(int)rect.Width + (border * 2),
-                    //                                        //(int)rect.Height + adjustment + border,
-                    //                                        //(int)(NoCopyBitsFlag | NoSendChangingFlag | ShowWindowFlag));
-
-
-                    //                }
-                    //                catch (Exception ex)
-                    //                {
-
-                    //                    uint e = NativeMethods.GetLastError();
-
-                    //                    throw;
-                    //                }
-
-                    //            }
-
-                    //            //switch (entry)
-                    //            //{
-                    //            //    case "":
-                    //            //        break;
-                    //            //    default:
-                    //            //        break;
-
-                    //            //}
-
-
-                    //            //try
-                    //            //{
-                    //            //    bool result;
-                    //            //    result = NativeMethods.ShowWindow(item, NativeMethods.SW_HIDE);
-                    //            //}
-                    //            //catch (Exception ex)
-                    //            //{
-                    //            //    throw;
-                    //            //}
-
-                    //            //Thread.Sleep(100);
-
-                    //            //try
-                    //            //{
-                    //            //    bool result;
-                    //            //    result = NativeMethods.ShowWindow(item, NativeMethods.SW_SHOW);
-                    //            //}
-                    //            //catch (Exception ex)
-                    //            //{
-                    //            //    throw;
-                    //            //}
-
-                    //            Console.WriteLine(entry);
-                    //        }
-
-                    //    }
-
-                    //}
-
-                    // zoomHandle = proc.MainWindowHandle;
 
                     break;
 

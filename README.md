@@ -1,24 +1,8 @@
-# JwlMediaWin <img src="https://ci.appveyor.com/api/projects/status/iflm7hmfrl4ffqjw?svg=true">
+# ZoomSwitcher <img src="https://ci.appveyor.com/api/projects/status/iflm7hmfrl4ffqjw?svg=true">
 
-TrayIcon utility to modify JW Library media window.
+Utility to hide the media window for Zoom and JW Library.
 
-![Main Window](http://cv8.org.uk/soundbox/JwlMediaWin/Images/JwlMediaWin.png)
-
-Some find the JW Library media window a little difficult to manage when using 3rd-party applications such as
-VLC and OnlyM to display images or videos that aren't included in JW Library. The media window is sometimes lost 
-during transition between applications and occasionally the year text disappears.
-
-JwlMediaWin changes the behaviour of the JW Library media window so that it is not minimized whenever another 
-application opens a window on the media display. The JW Library application code is not modified, rather 
-UI Automation is used to transform the media window (i.e. it performs functions you _could_ do manually).
-
-### Download
-
-If you just want to install the application, please download the [JwlMediaWinSetup.exe](https://github.com/AntonyCorbett/JwlMediaWin/releases/latest) file.
-
-### Help
-
-See the [wiki](https://github.com/AntonyCorbett/JwlMediaWin/wiki) for basic instructions and for information on where to get further help.
+To avoid having to drag the secondary output window for these two apps manually across to the secondary monitor, this utility can temporarily hide whichever one is not needed, thus simplifying the process to switch between them.
 
 ### License, etc
 
