@@ -78,6 +78,7 @@
             this.Name = "Form1";
             this.Text = "Switcher";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_Unload);
             this.ResumeLayout(false);
             this.PerformLayout();
 

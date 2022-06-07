@@ -42,6 +42,15 @@ namespace ZoomSwitcher
 
         }
 
+        private void Form1_Unload(object sender, FormClosingEventArgs e)
+        {
+            if (chkJWL.Checked ==false || chkZoom.Checked == false )
+            {
+                MessageBox.Show($"Cannot quite while windows are hidden.{Environment.NewLine}{Environment.NewLine}Tick both windows first and then try again.", "Media Windows Hidden", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
+            }
+        }
+
         private string GetAppName(JwLibAppTypes appType)
         {
             switch (appType)
@@ -71,7 +80,10 @@ namespace ZoomSwitcher
             }
 
             ctrl.Enabled = enabled;
-
+            if(ctrl.Enabled == false && !ctrl.Checked) //stops the app closing while zoom or jwl media windows are hidden as they won't get found again.
+            {
+                ctrl.Checked = true;
+            }
         }
 
         private void SetHandle(JwLibAppTypes AppType, IntPtr handle)
@@ -137,10 +149,10 @@ namespace ZoomSwitcher
                     jwlHandle = IntPtr.Zero;
                     ShowBalloonMsg(SystemIcons.Information, msg);
 
-                    if (_isFixed && jwlHandle == IntPtr.Zero && e.Status.FindWindowResult.FoundMediaWindow)
-                    {
-                        jwlHandle = new IntPtr(e.Status.FindWindowResult.MainMediaWindow.Current.NativeWindowHandle);
-                    }
+                    //if (_isFixed && jwlHandle == IntPtr.Zero && e.Status.FindWindowResult.FoundMediaWindow)
+                    //{
+                    //    jwlHandle = new IntPtr(e.Status.FindWindowResult.MainMediaWindow.Current.NativeWindowHandle);
+                    //}
 
                 }
             }

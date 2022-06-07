@@ -351,8 +351,8 @@
 
                     foreach (AutomationElement candidate in candidates)
                     {
-                        if (IsWindowTopMost(candidate))
-                            {
+                        //if (IsWindowTopMost(candidate))
+                        //    {
                             var coreWindow = GetJwlCoreWindow(candidate, caption);
                             if (coreWindow != null)
                             {
@@ -365,7 +365,7 @@
                                     };
                                 }
                             }
-                        }
+                        //}
                     }
 
                     break;
