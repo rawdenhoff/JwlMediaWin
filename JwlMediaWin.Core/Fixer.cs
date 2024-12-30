@@ -16,6 +16,7 @@
     internal class Fixer
     {
         private const string JwLibProcessName = "JWLibrary";
+        private const string JwLibCaptionSecondDisp = "Second Display ‎- JW Library";
         private const string JwLibCaption = "JW Library";
 
         private const string JwLibSignLanguageProcessName = "JWLibrary.Forms.UWP";
@@ -179,7 +180,7 @@
 
         private static bool IsAJwlWindow(AutomationElement item)
         {
-            return item.Current.Name?.Contains(JwLibCaption) ?? false;
+            return item.Current.Name?.Contains(JwLibCaptionSecondDisp) ?? false;
         }
 
         private FixerStatus ExecuteInternal(
@@ -190,16 +191,8 @@
         {
             var result = new FixerStatus { FindWindowResult = GetMediaAndCoreWindow(appType, processName, caption) };
 
-
-
-            //if (result.FindWindowResult.FoundMediaWindow )
-            //{
-            //    var retHandle = (IntPtr)result.FindWindowResult.MainMediaWindow.Current.NativeWindowHandle;
-            //    result.MediaHandle = retHandle;
-            //}
-
             if (!result.FindWindowResult.FoundMediaWindow ||
-             result.FindWindowResult.IsAlreadyFixed)
+                 result.FindWindowResult.IsAlreadyFixed)
             {
                 return result;
             }
@@ -231,7 +224,7 @@
             }
 
             var insertAfterValue = topMost
-            ? new IntPtr(-1)
+                ? new IntPtr(-1)
                 : new IntPtr(-2);
 
             const uint ShowWindowFlag = 0x0040;
@@ -359,9 +352,10 @@
             {
                 case JwlMediaWin.Core.Models.JwLibAppTypes.JwLibrary:
 
+                    //changed from IsEnabled to ClassNameProperty as it won't be enabled after Fixing.
                     var candidateMediaWindows = _cachedDesktopElement.FindAll(
-                TreeScope.Children,
-                new PropertyCondition(AutomationElement.IsEnabledProperty, true));
+                        TreeScope.Children,
+                        new PropertyCondition(AutomationElement.ClassNameProperty, "ApplicationFrameWindow"));
 
                     if (candidateMediaWindows.Count == 0)
                     {
@@ -370,21 +364,32 @@
 
                     foreach (AutomationElement candidateMediaWindow in candidateMediaWindows)
                     {
-                        if (IsWindowTopMost(candidateMediaWindow) && IsAJwlWindow(candidateMediaWindow))
+
+                        var coreWindow = GetJwlCoreWindow(candidateMediaWindow, caption);
+                        if (coreWindow != null)
                         {
-                            var coreWindow = GetJwlCoreWindow(candidateMediaWindow, caption);
-                            if (coreWindow != null)
+
+                            var correctCoreWindow = IsCorrectCoreWindow(appType, coreWindow);
+
+                            if (correctCoreWindow)
                             {
-                                if (IsCorrectCoreWindow(appType, coreWindow))
+                                //won't be top-most if already fixed
+                                //var windowTopMost = IsWindowTopMost(candidateMediaWindow);
+                                var isAJwlWindow = IsAJwlWindow(candidateMediaWindow);
+
+                                if(isAJwlWindow)
                                 {
                                     return new MediaAndCoreWindows
-                                    {
-                                        CoreWindow = coreWindow,
-                                        MediaWindow = candidateMediaWindow
-                                    };
+                                        {
+                                            CoreWindow = coreWindow,
+                                            MediaWindow = candidateMediaWindow
+                                        };
                                 }
+
+                               
                             }
                         }
+
                     }
 
                     break;
@@ -423,9 +428,6 @@
 
             return null;
         }
-
-
-
 
         private void CacheDesktopElement()
         {
