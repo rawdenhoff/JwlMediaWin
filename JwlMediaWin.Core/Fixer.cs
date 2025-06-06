@@ -16,7 +16,6 @@
     internal class Fixer
     {
         private const string JwLibProcessName = "JWLibrary";
-        private const string JwLibCaptionSecondDisp = "Second Display ‎- JW Library";
         private const string JwLibCaption = "JW Library";
 
         private const string JwLibSignLanguageProcessName = "JWLibrary.Forms.UWP";
@@ -180,7 +179,7 @@
 
         private static bool IsAJwlWindow(AutomationElement item)
         {
-            return item.Current.Name?.Contains(JwLibCaptionSecondDisp) ?? false;
+            return item.Current.Name?.Contains(JwLibCaption) ?? false;
         }
 
         private FixerStatus ExecuteInternal(

@@ -32,6 +32,8 @@ namespace ZoomSwitcher
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            lblVersion.Text = $"Version {Application.ProductVersion}";
+
             _fixerRunnerJWL.AppType = JwLibAppTypes.JwLibrary;
             _fixerRunnerJWL.StatusEvent += HandleFixerRunnerStatusEvent;
             Task.Run(() => { _fixerRunnerJWL.Start(); });

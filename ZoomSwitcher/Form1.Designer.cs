@@ -33,6 +33,7 @@
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.chkJWL = new System.Windows.Forms.CheckBox();
             this.chkZoom = new System.Windows.Forms.CheckBox();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // notifyIcon
@@ -73,11 +74,24 @@
             this.chkZoom.UseVisualStyleBackColor = true;
             this.chkZoom.CheckedChanged += new System.EventHandler(this.chkZoom_CheckedChanged);
             // 
+            // lblVersion
+            // 
+            this.lblVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersion.ForeColor = System.Drawing.Color.LightGray;
+            this.lblVersion.Location = new System.Drawing.Point(81, 76);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(100, 23);
+            this.lblVersion.TabIndex = 2;
+            this.lblVersion.Text = "Version";
+            this.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(180, 96);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.chkZoom);
             this.Controls.Add(this.chkJWL);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -95,6 +109,7 @@
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.CheckBox chkJWL;
         private System.Windows.Forms.CheckBox chkZoom;
+        private System.Windows.Forms.Label lblVersion;
     }
 }
 
