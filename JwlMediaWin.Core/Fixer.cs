@@ -131,8 +131,14 @@
 
         private static AutomationElement GetJwlCoreWindow(AutomationElement mainJwlWindow, string caption)
         {
-            Condition condition = new AndCondition(
-                new PropertyCondition(AutomationElement.NameProperty, caption),
+
+            if (mainJwlWindow == null)
+            {
+                return null;
+            }
+            
+            var condition = new AndCondition(
+            new PropertyCondition(AutomationElement.NameProperty, caption),
                 new PropertyCondition(AutomationElement.ClassNameProperty, "Windows.UI.Core.CoreWindow"));
 
             return mainJwlWindow.FindFirst(TreeScope.Children, condition);
@@ -142,7 +148,7 @@
         {
             return coreJwlWindow.FindFirst(
                 TreeScope.Children,
-                new PropertyCondition(AutomationElement.ClassNameProperty, "WebView"));
+                new PropertyCondition(AutomationElement.ClassNameProperty, "Microsoft.UI.Xaml.Controls.WebView2"));
         }
 
         private static AutomationElement GetImageControl(AutomationElement coreJwlWindow)
@@ -154,11 +160,23 @@
 
         private static bool HasTransformPattern(AutomationElement item)
         {
+
+            if (item == null)
+            {
+                return false;
+            }
+
             return (bool)item.GetCurrentPropertyValue(AutomationElement.IsTransformPatternAvailableProperty);
         }
 
         private static bool HasWindowPattern(AutomationElement item)
         {
+
+            if (item == null)
+            {
+                return false;
+            }
+
             return (bool)item.GetCurrentPropertyValue(AutomationElement.IsWindowPatternAvailableProperty);
         }
 
@@ -169,7 +187,7 @@
                 return false;
             }
 
-            if (item.GetCurrentPattern(WindowPattern.Pattern) is WindowPattern wp)
+            if (item.TryGetCurrentPattern(WindowPattern.Pattern, out var patternObj) && patternObj is WindowPattern wp)
             {
                 return wp.Current.IsTopmost;
             }
@@ -251,7 +269,7 @@
                 (int)rect.Left - border,
                 (int)rect.Top - adjustment,
                 (int)rect.Width + (border * 2),
-                (int)rect.Height + adjustment + border,
+                (int)rect.Height + (adjustment + border),
                 (int)(NoCopyBitsFlag | NoSendChangingFlag | ShowWindowFlag));
 
 
@@ -271,7 +289,7 @@
             return result;
         }
 
-        private void EnsureWindowIsNonSizeable(IntPtr mainHandle)
+        private static void EnsureWindowIsNonSizeable(IntPtr mainHandle)
         {
             const int GWL_STYLE = -16;
             const int WS_SIZEBOX = 0x040000;
